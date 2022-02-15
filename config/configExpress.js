@@ -9,7 +9,7 @@ module.exports = () => {
   app.use(bodyParse.urlencoded({ extended: true }));
   app.use(bodyParse.json());
 
-  app.listen(3000, () => {console.log('Servidor rodando...')});
+  //app.listen(3000, () => {console.log('Servidor rodando...')});
 
   consign()
     .include("controllers")

@@ -8,5 +8,7 @@ conexao.connect(erro => {
         console.log('conectado com sucesso')
 
         const app = configExpress();
+
+        app.listen(3000, () => {console.log('Servidor rodando...')});
     }
 });

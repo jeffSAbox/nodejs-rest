@@ -6,7 +6,7 @@ conexao.connect(erro => {
         console.log(erro)
     } else {
         console.log('conectado com sucesso')
+
+        const app = configExpress();
     }
 });
-
-const app = configExpress();

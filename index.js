@@ -1,3 +1,3 @@
-const configExpress = require "./config/configExpress";
+const configExpress = require("./config/configExpress");
 
 const app = configExpress();

@@ -3,7 +3,7 @@ const moment = require("moment");
 
 class Atendimento{
 
-  adicionar(atendimento){
+  adicionar(atendimento, res){
 
     let sql = 'INSERT INTO Atendimentos SET ?'
     let dataCriacao = new Date();
@@ -12,9 +12,9 @@ class Atendimento{
 
     conexao.query(sql, arr_atendimento, (erro, resultados) => {
         if(erro) {
-            console.log(erro)
+            res.status(400).json(erro);
         } else {
-            console.log(resultados)
+            res.status(200).json(resultados);
         }
     })
 

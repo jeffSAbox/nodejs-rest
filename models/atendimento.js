@@ -83,6 +83,26 @@ class Atendimento{
 
   }
 
+  deletar(id, res)
+  {
+
+    let sql = "DELETE FROM Atendimentos WHERE id = ?";
+
+    conexao.query(sql, id, (erro, resposta) => {
+
+      if( erro )
+      {
+        res.status(400).json(erro);
+      }
+      else
+      {
+        res.status(200).json(resposta);
+      }
+
+    });
+
+  }
+
 }
 
 module.exports = new Atendimento;

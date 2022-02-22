@@ -8,6 +8,14 @@ module.exports = app => {
 
   });
 
+  app.get("/atendimentos/:id", (req, res) => {
+
+    let id = req.params.id;
+
+    Atendimento.listarPorId(id, res);
+
+  });
+
   app.post("/atendimentos", (req, res) => {
 
     let atendimento = req.body;

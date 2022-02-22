@@ -2,11 +2,15 @@ const Atendimento = require("../models/atendimento");
 
 module.exports = app => {
 
-  app.get("/atendimentos", (req, res) => res.send("rota de atendimentos"));
+  app.get("/atendimentos", (req, res) => {
+    
+    Atendimento.listarTodos(res);
+
+  });
 
   app.post("/atendimentos", (req, res) => {
 
-    const atendimento = req.body;
+    let atendimento = req.body;
     Atendimento.adicionar(atendimento, res);
 
   });

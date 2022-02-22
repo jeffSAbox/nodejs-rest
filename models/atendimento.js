@@ -20,6 +20,22 @@ class Atendimento{
 
   }
 
+  listarTodos(res)
+  {
+    let sql = "SELECT * FROM Atendimentos";
+
+    conexao.query(sql, (erro, resultado) => {
+      if(erro)
+      {
+        res.status(400).send(erro);
+      }
+      else
+      {
+        res.status(200).send(resultado);
+      }
+    });
+  }
+
 }
 
 module.exports = new Atendimento;

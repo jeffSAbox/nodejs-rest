@@ -10,8 +10,7 @@ module.exports = app => {
 
   app.get("/atendimentos/:id", (req, res) => {
 
-    let id = req.params.id;
-
+    let id = parseInt(req.params.id);
     Atendimento.listarPorId(id, res);
 
   });

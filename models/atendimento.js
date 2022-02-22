@@ -3,7 +3,8 @@ const moment = require("moment");
 
 class Atendimento{
 
-  adicionar(atendimento, res){
+  adicionar(atendimento, res)
+  {
 
     let sql = 'INSERT INTO Atendimentos SET ?'
     let dataCriacao = new Date();
@@ -51,6 +52,31 @@ class Atendimento{
       {
         let result_atendimento = resultados[0];
         res.status(200).send(result_atendimento);
+      }
+
+    });
+
+  }
+
+  atualizar(id, atualizacoes, res)
+  {
+
+    let sql = "UPDATE Atendimentos SET ? WHERE id = ?";
+
+    if( atualizacoes.data )
+    {
+      atualizacoes.data = moment(atualizacoes.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss')
+    }
+
+    conexao.query(sql, [atualizacoes, id], (erro, resposta) => {
+
+      if( erro )
+      {
+        res.status(400).json(resposta);
+      }
+      else
+      {
+        res.status(200).json(resposta);
       }
 
     });

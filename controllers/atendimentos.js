@@ -21,4 +21,13 @@ module.exports = app => {
     Atendimento.adicionar(atendimento, res);
 
   });
+
+  app.patch("/atendimentos/:id", (req, res) => {
+
+    let id = parseInt(req.params.id);
+    let atualizacoes = req.body;
+
+    Atendimento.atualizar(id, atualizacoes, res);
+
+  });
 }

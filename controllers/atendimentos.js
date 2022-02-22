@@ -1,3 +1,4 @@
+const { criarAtendimentos } = require("../infra/tabelas");
 const Atendimento = require("../models/atendimento");
 
 module.exports = app => {
@@ -30,4 +31,13 @@ module.exports = app => {
     Atendimento.atualizar(id, atualizacoes, res);
 
   });
+
+  app.delete("/atendimentos/:id", (req, res) => {
+
+    let id = parseInt(req.params.id);
+
+    Atendimento.deletar(id, res);
+
+  });
+
 }
